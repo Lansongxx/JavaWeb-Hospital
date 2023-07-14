@@ -19,11 +19,16 @@
   <!-- 引入一个js文件 -->
   <script src="js/Patient.js"></script>
   <link rel="stylesheet" href="css/navbar.css">
+
+  <link rel="stylesheet" href="css/fanhui.css">
+
   <link rel="stylesheet" href="css/leave.css">
+
   </style>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
+
 <div>
   <%String A_Name = request.getParameter("A_Name");%>
   <!-- 欢迎管理员登录 -->
