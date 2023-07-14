@@ -27,10 +27,6 @@ public class DoctorRegisterServlet extends HttpServlet {
         String name=req.getParameter("name");
         String password=req.getParameter("password");
         String r_password=req.getParameter("r_password");
-        if (!Objects.equals(password, r_password)){
-            req.setAttribute("Errormessage","密码不一致，请重新输入");
-            req.getRequestDispatcher("DoctorRegister.jsp").forward(req,resp);
-        }
         String sex=req.getParameter("sex");
         int age= Integer.parseInt(req.getParameter("age"));
         String phone=req.getParameter("phone");
@@ -42,7 +38,14 @@ public class DoctorRegisterServlet extends HttpServlet {
         int DepartmentId = Integer.parseInt(part2);
         String part3=req.getParameter("part3");
         String discript=req.getParameter("discript");
-
+        if (password == null || name == null || sex == null || phone == null || part == null || part2 == null || part3 == null || discript == null){
+            req.setAttribute("Errormessage","请将所有信息填写完整!");
+            req.getRequestDispatcher("DoctorRegister.jsp").forward(req,resp);
+        }
+        if (!Objects.equals(password, r_password)){
+            req.setAttribute("Errormessage","密码不一致，请重新输入");
+            req.getRequestDispatcher("DoctorRegister.jsp").forward(req,resp);
+        }
         Doctor doctor=doctorService.DoctorRegister(name,HospitalId,DepartmentId,password,sex,age,phone,hospitalDao.find(HospitalId).getName(), departmentDaoimpl.findone(DepartmentId).getDepartmentname(),part3,discript);
 
         int id=doctor.getId();
