@@ -102,7 +102,7 @@
                 <td><%=doctor.getPart3()%></td>
                 <td><span class="introduction"><%=doctor.getDiscript()%></span></td>
                 <td>
-                    <button class="button" type="submit" onclick="SelectDoctor(<%=UserID%>,<%=HospitalID%>,<%=DepartmentID%>,<%=doctor.getId()%>); return false;">选择该科室</button>
+                    <button class="button" type="submit" onclick="SelectDoctor(<%=UserID%>,<%=HospitalID%>,<%=DepartmentID%>,<%=doctor.getId()%>); return false;">选择该医生</button>
                 </td>
             </tr>
             <% } %>
