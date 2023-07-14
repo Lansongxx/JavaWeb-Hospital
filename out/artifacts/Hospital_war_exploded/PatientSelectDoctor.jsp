@@ -24,7 +24,7 @@
 <h1>桂林市医院统一预约挂号服务平台</h1>
 
 <div id="patternContainer">
-    <a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>" target="_self">
+    <a href="./PatientSelectDepartment.jsp?UserID=<%= UserID %>&HospitalID=1<%= HospitalID %>" target="_self">
         <canvas id="patternCanvas" width="80" height="80"></canvas>
     </a>
 </div>
@@ -102,7 +102,7 @@
                 <td><%=doctor.getPart3()%></td>
                 <td><span class="introduction"><%=doctor.getDiscript()%></span></td>
                 <td>
-                    <button class="button" type="submit" onclick="SelectDoctor(<%=UserID%>,<%=HospitalID%>,<%=DepartmentID%>,<%=doctor.getId()%>); return false;">选择该科室</button>
+                    <button class="button" type="submit" onclick="SelectDoctor(<%=UserID%>,<%=HospitalID%>,<%=DepartmentID%>,<%=doctor.getId()%>); return false;">选择该医生</button>
                 </td>
             </tr>
             <% } %>

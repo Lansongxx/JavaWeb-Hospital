@@ -22,8 +22,77 @@
 <html>
 <head>
     <title>用户首页</title>
-    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /*background-color: white;*/
+            margin: 0;
+            padding: 20px;
+        }
+        a {
+            text-decoration: none; /* 去掉下划线 */
+            color: #000; /* 设置链接的颜色为黑色 */
+            transition: color 0.3s; /* 添加过渡效果 */
+        }
 
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #e6e6e6;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar li a:hover {
+            background-color: white;
+        }
+
+        form {
+            position: relative; /* 相对定位 */
+            top: 8px;
+        }
+    </style>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
