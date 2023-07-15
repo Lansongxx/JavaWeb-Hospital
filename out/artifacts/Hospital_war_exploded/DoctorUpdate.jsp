@@ -2,8 +2,14 @@
 <%@ page import="hospital.user.Hospital" %>
 <%@ page import="java.util.List" %>
 <%@ page import="hospital.user.Department" %>
+<%@ page import="hospital.dao.impl.DoctorDaoImpl" %>
+<%@ page import="hospital.user.Doctor" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%
+    int id = Integer.parseInt(request.getParameter("id"));
+    DoctorDaoImpl doctorDaoImpl = new DoctorDaoImpl();
+    Doctor doctor = doctorDaoImpl.findByid(id);
+%>
 <html>
 <head>
     <title>更新个人信息</title>
@@ -19,7 +25,7 @@
         <%--第一行:姓名--%>
         <tr>
             <td><label for="name">姓名</label> </td>
-            <td><input type="text" name="name" id="name"></td>
+            <td><input type="text" name="name" id="name" value="<%= doctor.getName()%>"></td>
         </tr>
 
         <%--第四行:性别--%>
@@ -30,12 +36,12 @@
         <%--第五行:年龄--%>
         <tr>
             <td><label for="age">年龄</label> </td>
-            <td><input type="text" name="age" id="age"></td>
+            <td><input type="text" name="age" id="age" value="<%= doctor.getAge()%>"></td>
         </tr>
         <%--第六行:电话--%>
         <tr>
             <td><label for="phone">电话</label> </td>
-            <td><input type="text" name="phone" id="phone"></td>
+            <td><input type="text" name="phone" id="phone" value="<%= doctor.getPhone()%>"></td>
         </tr>
         <%
             AdminService adminService=new AdminService();
@@ -59,7 +65,7 @@
 
         <%
             /*获取从登录页面和注册页面传入的id*/
-            int id = Integer.parseInt(request.getParameter("id"));
+//            int id = Integer.parseInt(request.getParameter("id"));
             List<Department> departmentList = adminService.AllDepartment();
         %>
 
@@ -94,7 +100,7 @@
         <tr>
             <td><strong>个人介绍</strong></td>
             <td>
-                <textarea name="Introduction" rows="5" cols="50" id="Introduction"></textarea>
+                <textarea name="Introduction" rows="5" cols="50" id="Introduction" value="<%= doctor.getDiscript()%>"></textarea>
             </td>
         </tr>
 

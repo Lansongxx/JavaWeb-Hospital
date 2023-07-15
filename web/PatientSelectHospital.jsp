@@ -17,6 +17,11 @@
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/patientform.css">
   <link rel="stylesheet" href="css/fanhui.css">
+  <script>
+    function showMessage(message) {
+      alert(message);
+    }
+  </script>
 </head>
 <body>
 <div id="patternContainer">
@@ -137,6 +142,12 @@
     window.location.href = "./PatientSelectDepartment.jsp?UserID=" + UserID + "&HospitalID=" + HospitalID;
   }
 </script>
+
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+  showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 
 </body>
 </html>

@@ -133,6 +133,7 @@ public class PatientDaoImpl implements PatientDao {
                 patient.setPhoneNumber(rs.getString("PhoneNumber"));
                 patient.setEmail(rs.getString("email"));
                 patient.setDateOfBirth(rs.getString("DateOfBirth"));
+                System.out.println("!!!");
                 return patient;
             }
             return null;
