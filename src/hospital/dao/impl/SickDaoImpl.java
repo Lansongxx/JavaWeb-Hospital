@@ -59,6 +59,22 @@ public class SickDaoImpl implements SickDao {
         }
     }
 
+    public boolean deletebyUserID(int id) {
+        try {
+            Connection connection=DbConnection.getConnection();
+            String sql="delete from appointment where patientid=?";
+            PreparedStatement pt=connection.prepareStatement(sql);
+            pt.setInt(1,id);
+            if(pt.executeUpdate()>0){
+                return true;
+            }
+            return false;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     @Override
     public boolean update(Sick sick) {
         try{

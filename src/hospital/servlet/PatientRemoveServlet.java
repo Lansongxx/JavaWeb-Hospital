@@ -1,6 +1,7 @@
 package hospital.servlet;
 
 import hospital.dao.impl.PatientDaoImpl;
+import hospital.dao.impl.SickDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,17 @@ public class PatientRemoveServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+        try {
+            String A_Name = request.getParameter("A_Name");
+            int Id = Integer.parseInt(request.getParameter("Id"));
+            SickDaoImpl sickDaoimpl = new SickDaoImpl();
+            sickDaoimpl.deletebyUserID(Id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+
+
         try {
             String A_Name = request.getParameter("A_Name");
             int Id = Integer.parseInt(request.getParameter("Id"));
